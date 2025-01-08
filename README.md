@@ -145,18 +145,8 @@ npx expo build:ios     # iOS için
 - [TypeScript Dokümantasyonu](https://www.typescriptlang.org/docs/)
 - [Zustand Dokümantasyonu](https://github.com/pmndrs/zustand)
 
-## 📝 Lisans
-
-Bu proje [MIT](LICENSE) lisansı altında lisanslanmıştır.
-
-## 📞 İletişim
-
-- Proje Sahibi: [İsim Soyisim](https://github.com/kullaniciadi)
-- E-posta: ornek@email.com
-- Discord: [Daily Quote Topluluğu](https://discord.gg/dailyquote)
-
 ---
-
+(henüz tamamlanmamış ve bir çok eksiği olan bir proje olduğunu unutmayın)
 ⭐️ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!
 
 ```
