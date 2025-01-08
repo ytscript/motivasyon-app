@@ -1,50 +1,172 @@
-# Welcome to your Expo app 👋
+# 🌟 Daily Quote - Motivasyon & Hedef Takip Uygulaması
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Günlük motivasyon sözleri, hedef takibi ve kişisel gelişim için tasarlanmış mobil uygulama.
 
-## Get started
+## 📱 Özellikler
 
-1. Install dependencies
+- 📖 Günlük motivasyon sözleri
+- 🎯 Hedef belirleme ve takip
+- 📚 Kitap önerileri
+- 🌓 Karanlık/Aydınlık tema desteği
+- 💾 Çevrimdışı kullanım
+- ⭐ Favori alıntılar
+- 🔍 Kategori bazlı arama
+- 📊 İlerleme takibi
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Teknolojiler
 
-2. Start the app
+- React Native / Expo
+- TypeScript
+- SQLite
+- Zustand
+- React Navigation
+- Expo Router
+- AsyncStorage
 
-   ```bash
-    npx expo start
-   ```
+## 🚀 Kurulum
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+1. Projeyi klonlayın:
 
 ```bash
-npm run reset-project
+git clone https://github.com/kullaniciadi/daily-quote.git
+cd daily-quote
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Bağımlılıkları yükleyin:
 
-## Learn more
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+3. Uygulamayı başlatın:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npx expo start
+```
 
-## Join the community
+Çıktıda, uygulamayı şunlarda açma seçeneklerini bulacaksınız:
 
-Join our community of developers creating universal apps.
+- [Development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 📱 Uygulama Kullanımı
+
+1. **Motivasyon Sözleri**
+
+   - Ana ekranda günlük motivasyon sözlerini görüntüleyin
+   - Sözleri kategorilere göre filtreleyebilirsiniz
+   - Beğendiğiniz sözleri favorilere ekleyin
+
+2. **Hedef Takibi**
+
+   - Yeni hedef ekleyin
+   - Hedeflerinizi kategorize edin
+   - İlerleme durumunuzu güncelleyin
+   - Tamamlanan hedefleri işaretleyin
+
+3. **Kitap Önerileri**
+   - Kişisel gelişim kitaplarını keşfedin
+   - Okuma listesi oluşturun
+   - Kitap değerlendirmeleri yapın
+
+## 📁 Proje Yapısı
+
+```
+src/
+├── components/     # Yeniden kullanılabilir bileşenler
+├── screens/        # Uygulama ekranları
+├── navigation/     # Navigasyon yapılandırması
+├── store/         # Zustand store yönetimi
+├── utils/         # Yardımcı fonksiyonlar
+├── constants/     # Sabit değerler
+├── types/         # TypeScript tipleri
+└── assets/        # Resimler ve diğer medya dosyaları
+```
+
+## 🔄 Veritabanı Şeması
+
+```sql
+-- Temel tablolar ve ilişkiler
+users
+  ├── id
+  ├── username
+  ├── email
+  └── created_at
+
+quotes
+  ├── id
+  ├── text
+  ├── author
+  ├── category
+  └── created_at
+
+goals
+  ├── id
+  ├── user_id
+  ├── title
+  ├── description
+  ├── deadline
+  └── progress
+```
+
+## 🌐 API Dokümantasyonu
+
+API endpoint'leri ve kullanımları için [API.md](docs/API.md) dosyasını inceleyebilirsiniz.
+
+## 🧪 Test
+
+```bash
+npm run test
+```
+
+## 🚀 Deployment
+
+Production build oluşturmak için:
+
+```bash
+npx expo build:android  # Android için
+npx expo build:ios     # iOS için
+```
+
+## 🤝 Katkıda Bulunma
+
+1. Bu repository'yi fork edin
+2. Yeni bir branch oluşturun (`git checkout -b feature/yeniOzellik`)
+3. Değişikliklerinizi commit edin (`git commit -am 'Yeni özellik: Açıklama'`)
+4. Branch'inizi push edin (`git push origin feature/yeniOzellik`)
+5. Pull Request oluşturun
+
+## 📚 Faydalı Kaynaklar
+
+- [Expo Dokümantasyonu](https://docs.expo.dev/)
+- [React Native Dokümantasyonu](https://reactnative.dev/)
+- [TypeScript Dokümantasyonu](https://www.typescriptlang.org/docs/)
+- [Zustand Dokümantasyonu](https://github.com/pmndrs/zustand)
+
+## 📝 Lisans
+
+Bu proje [MIT](LICENSE) lisansı altında lisanslanmıştır.
+
+## 📞 İletişim
+
+- Proje Sahibi: [İsim Soyisim](https://github.com/kullaniciadi)
+- E-posta: ornek@email.com
+- Discord: [Daily Quote Topluluğu](https://discord.gg/dailyquote)
+
+---
+
+⭐️ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!
+
+```
+
+Bu güncellenmiş README dosyası:
+- Expo ile ilgili spesifik bilgileri içeriyor
+- Test ve deployment bölümleri eklendi
+- Faydalı kaynaklar bölümü eklendi
+- API dokümantasyonu referansı eklendi
+- Discord topluluğu bağlantısı eklendi
+
+İsterseniz başka eklemeler veya düzenlemeler yapabiliriz.
+```

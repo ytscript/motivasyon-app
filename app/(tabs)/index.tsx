@@ -1,74 +1,84 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import React, { useState } from 'react';
+import { Platform, StyleSheet, ScrollView, View, RefreshControl, SafeAreaView } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { DailyQuote } from '@/components/daily/DailyQuote';
+import { CategoryGrid } from '@/components/categories/CategoryGrid';
+import { RecentQuotes } from '@/components/quotes/RecentQuotes';
+import { MotivationStats } from '@/components/stats/MotivationStats';
+import { useTheme } from '@/contexts/ThemeContext';
+import { Theme } from '@/constants/Theme';
+import Animated, { FadeIn } from 'react-native-reanimated';
 
 export default function HomeScreen() {
+  const { theme } = useTheme();
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 1000);
+  }, []);
+  
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <SafeAreaView 
+      style={{ 
+        flex: 1, 
+        backgroundColor: theme.colors.background,
+        paddingTop: Platform.OS === 'ios' ? -5 : 0,
+      }}
+      edges={['top']}
+    >
+      <ScrollView 
+        style={styles.container}
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor={theme.colors.primary}
+            colors={[theme.colors.primary]}
+          />
+        }
+      >
+        <View style={styles.header}>
+          <ThemedText style={[styles.greeting, { color: theme.colors.text.primary }]}>
+            Merhaba 👋
+          </ThemedText>
+          <ThemedText style={[styles.subtitle, { color: theme.colors.text.secondary }]}>
+            Bugün kendini nasıl hissediyorsun?
+          </ThemedText>
+        </View>
+
+        <DailyQuote />
+        <CategoryGrid />
+        <RecentQuotes />
+        <MotivationStats />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  content: {
+    padding: 16,
+    paddingTop: Platform.OS === 'ios' ? 8 : 16,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  header: {
+    marginBottom: 20,
   },
+  greeting: {
+    fontSize: 26,
+    fontWeight: '600',
+    marginBottom: 4,
+    paddingTop: 10,
+
+  },
+  subtitle: {
+    fontSize: 16,
+  }
 });

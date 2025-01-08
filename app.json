@@ -9,12 +9,31 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.motivasyonapp",
+      "infoPlist": {
+        "NSPhotoLibraryAddUsageDescription": "Motivasyon sözlerini kaydetmek için izin gerekiyor.",
+        "NSPhotoLibraryUsageDescription": "Motivasyon sözlerini paylaşmak için izin gerekiyor."
+      },
+      "config": {
+        "admob": {
+          "appId": "ca-app-pub-3940256099942544~1458002511"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.yourcompany.motivasyonapp",
+      "permissions": [
+        "WRITE_EXTERNAL_STORAGE"
+      ],
+      "config": {
+        "admob": {
+          "appId": "ca-app-pub-3940256099942544~3347511713"
+        }
       }
     },
     "web": {
@@ -24,18 +43,20 @@
     },
     "plugins": [
       "expo-router",
+      "expo-splash-screen",
+      "expo-secure-store",
       [
-        "expo-splash-screen",
+        "expo-ads-admob",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "userTrackingPermission": "Bu uygulama size daha iyi bir deneyim sunmak için reklam kimliğinizi kullanmak istiyor."
         }
       ]
     ],
-    "experiments": {
-      "typedRoutes": true
-    }
+    "fonts": [
+      {
+        "asset": "node_modules/react-native-paper/fonts/MaterialCommunityIcons.ttf",
+        "family": "MaterialCommunityIcons"
+      }
+    ]
   }
 }
