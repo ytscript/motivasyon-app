@@ -6,12 +6,13 @@ Günlük motivasyon sözleri, hedef takibi ve kişisel gelişim için tasarlanm�
 
 - 📖 Günlük motivasyon sözleri
 - 🎯 Hedef belirleme ve takip
-- 📚 Kitap önerileri
+- 📚 Kitap önerileri (eklenecek)
 - 🌓 Karanlık/Aydınlık tema desteği
-- 💾 Çevrimdışı kullanım
-- ⭐ Favori alıntılar
-- 🔍 Kategori bazlı arama
-- 📊 İlerleme takibi
+- 💾 Çevrimdışı kullanım 
+- ⭐ Favori alıntılar 
+- 🔍 Kategori bazlı arama 
+- 📊 İlerleme takibi  (eklenecek)
+- (Veritabanı da eklenecek)
 
 ## 🛠️ Teknolojiler
 
